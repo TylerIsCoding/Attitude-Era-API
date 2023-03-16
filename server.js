@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const PORT = 8000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.static('js'));
 
 const wrestlers = {
   'stone cold': {
@@ -110,6 +109,6 @@ app.get('/api/:name', (request, response) => {
   }
 });
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
 });
